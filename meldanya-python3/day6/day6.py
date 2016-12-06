@@ -14,12 +14,11 @@ def decode(in_file):
     with open(in_file) as f:
         lines = f.read().splitlines()
     cols = list(zip(*lines))
-    message1, message2 = '', ''
+    messages = [''] * 2
     for col in cols:
-        message1 += most_common(col)
-        message2 += least_common(col)
-    print(message1)
-    print(message2)
+        messages[0] += most_common(col)
+        messages[1] += least_common(col)
+    print('\n'.join(messages))
 
 
 def main():
